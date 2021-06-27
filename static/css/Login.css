@@ -1,0 +1,20 @@
+.container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.box {
+  display: grid;
+  width: 300px;
+  height: 250px;
+  grid-template-rows: 1fr 2fr ;
+}
+h1 {
+  text-align: center;
+}
+
+.form_btn{
+  text-align: center;
+  padding-top: 10px ;
+}

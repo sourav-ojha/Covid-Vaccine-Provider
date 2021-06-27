@@ -1,0 +1,39 @@
+block style 
+    style 
+        include ../../static/css/bootstrap.min.css
+        include ../../static//css/Register.css
+
+block content 
+    .container 
+        .box 
+            h1 Register 
+            form(action='/user/register' method='POST')
+                .form-group
+                    label(for='name') Name
+                    input.form-control(type='text', name='name' placeholder='Name' autofocus=true)
+                .form-group
+                    label(for='fathername') Father Name
+                    input.form-control(type='text', name='fathername' placeholder='Father Name' )
+                .form-group
+                    label(for='phno') Phone Number
+                    input.form-control(type='text', name='phno' placeholder='Phone Number' )
+                .row.g-3 
+                    .col-auto 
+                        label(for='age') Age
+                        input.form-control(type='text', name='age' placeholder='Phone Number' )
+                    .col-auto
+                        label(for='gender') Gender
+                        <select class="form-select" aria-label="Default select example" name="gender" >
+                            <option selected>select menu</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                            </select>
+                .form-group
+                    label(for='email') Email
+                    input.form-control(type='email', name='email' placeholder='Email')
+                .form-group
+                    label(for='password') Password
+                    input.form-control(type='password', name='password')
+                .form_btn
+                    button.btn.btn-primary(type='submit') Register

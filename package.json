@@ -1,0 +1,31 @@
+{
+  "name": "covid-vaccine-provider",
+  "version": "1.0.0",
+  "description": "A website which provides Vaccine",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon ./index.js -e js,pug,css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sourav-ojha/Covid-Vaccine-Provider.git"
+  },
+  "keywords": [
+    "covid-vaccine",
+    "covid-19"
+  ],
+  "author": "sourav-ojha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sourav-ojha/Covid-Vaccine-Provider/issues"
+  },
+  "homepage": "https://github.com/sourav-ojha/Covid-Vaccine-Provider#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.15",
+    "pug": "^3.0.2"
+  }
+}
