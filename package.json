@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/sourav-ojha/Covid-Vaccine-Provider#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "mongoose": "^5.12.15",

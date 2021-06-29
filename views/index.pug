@@ -1,3 +1,6 @@
+block style 
+    style 
+        include ../static/css/index.css
 doctype html
 html
   head
@@ -15,6 +18,35 @@ html
         li #[a(href = "/admin/login") Admin Login]
 
     block content  
+      .box
+        .head Last Updated   
+          span=CR.lastupdatedtime 
+        .cards 
+          .card 
+            .text Confirmed
+            .value=CR.confirmed
+          .card 
+            .text Active
+            .value=CR.active
+          .card 
+            .text Deaths
+            .value=CR.deaths
+          .card 
+            .text Recovered
+            .value=CR.recovered
+          
+        .head Today's Stats
+        .cards 
+          .card 
+            .text Confirmed
+            .value=CR.newconfirmed
+          .card 
+            .text Deaths
+            .value=CR.newdeaths
+          .card 
+            .text Recovered
+            .value=CR.newrecovered
+        
 
     footer#footer 
       |   Copyright © 2021 www.Co-Vaccine-Provider.com | All Rights Reserved.   
