@@ -1,0 +1,34 @@
+block style 
+    style 
+        include ../static/css/displayPincode.css
+
+block content 
+    .container 
+        h1=message
+        .box  
+            each center in centers
+                .content
+                    .label Pincode 
+                    .value=center.pincode 
+                    .label Center Id
+                    .value=center.center_id
+                    .label Center name 
+                    .value=center.name
+                    .label District name 
+                    .value=center.district_name
+                    .label Sessions  
+                    .sessions 
+                        each session in center.sessions
+                            .label Date
+                            .session=session.date 
+                            .label Vaccine Name  
+                            .session=session.vaccine
+                            .label  Min Age Limit 
+                            .session=session.min_age_limit
+                            .label Dose 1  
+                            .session=session.available_capacity_dose1
+                            .label Dose 2  
+                            .session=session.available_capacity_dose2
+
+
+                
