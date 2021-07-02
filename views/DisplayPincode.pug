@@ -4,31 +4,30 @@ block style
 
 block content 
     .container 
-        h1=message
-        .box  
+        h1
+        .box
+            .header 
             each center in centers
-                .content
-                    .label Pincode 
-                    .value=center.pincode 
-                    .label Center Id
-                    .value=center.center_id
-                    .label Center name 
-                    .value=center.name
-                    .label District name 
-                    .value=center.district_name
-                    .label Sessions  
-                    .sessions 
+                .displayBlock 
+                    .center_flex 
+                        .name 
+                            span=center.name
+                            span=center.address
+                    .cont_data
                         each session in center.sessions
-                            .label Date
-                            .session=session.date 
-                            .label Vaccine Name  
-                            .session=session.vaccine
-                            .label  Min Age Limit 
-                            .session=session.min_age_limit
-                            .label Dose 1  
-                            .session=session.available_capacity_dose1
-                            .label Dose 2  
-                            .session=session.available_capacity_dose2
-
-
+                            .vaccine
+                                .date=session.date
+                                .vacc_name=session.vaccine
+                                .age Min Age : 
+                                    span=session.min_age_limit
+                                .avail 
+                                    .center
+                                        .d1
+                                            .d1_name D1
+                                            .d1_avail=session.available_capacity_dose1 
+                                        .total=session.available_capacity_dose1+session.available_capacity_dose2
+                                        .d2  
+                                            .d2_name D2
+                                            .d2_avail=session.available_capacity_dose2
+           
                 

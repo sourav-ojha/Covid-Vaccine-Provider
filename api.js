@@ -35,6 +35,7 @@ export const fetchPincode_api = async (pincode, date, cb) => {
     )
     .then((response) => {
       console.log(response.data);
+      console.log("this si ----------", response.data.centers[0].sessions);
       return cb(response.data);
     });
 };

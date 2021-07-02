@@ -1,21 +1,69 @@
+* {
+  margin: 0;
+}
 .container {
   display: grid;
+  width: 100%;
+  height: 100%;
+}
+
+.box {
+  margin: 50px;
+  border-top: 1px solid black;
+}
+
+.displayBlock {
+  display: grid;
+  grid-template-columns: 300px auto;
+  border-bottom: 1px solid black;
+}
+
+.center {
+  display: grid;
+  grid-template-columns: auto auto auto;
   place-items: center;
-  width: 100vw;
-  height: 100vh;
 }
-.content {
+.center_flex {
   display: grid;
-  grid-template-columns: 110px auto;
+  place-items: center;
 }
 
-.sessions {
-  display: grid;
-  grid-template-columns: 160px auto;
-}
-
-.label,
-.value,
-.session {
+.vaccine {
+  text-align: center;
   padding: 10px;
+  margin: 5px;
+}
+
+.vacc_name {
+  padding: 5px;
+}
+.age {
+  padding: 5px;
+  border: 1px solid black;
+}
+.avail {
+  padding: 5px;
+  text-align: center;
+  display: grid;
+  place-items: center;
+}
+
+.d1,
+.d2 {
+  padding: 5px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+}
+
+.total {
+  text-align: center;
+  align-items: center;
+  width: 30px;
+}
+
+.cont_data {
+  align-items: center;
+  display: flex;
 }
