@@ -3,8 +3,7 @@ import dotenv from "dotenv";
 import path from "path";
 import { dbConn } from "./config/db.js";
 import AuthRoutes from "./routes/auth.routes.js";
-import { fetchPincode_post } from "./controller/PostFunctions.js";
-import { covidData_api } from "./api.js";
+import { covidData_post, fetchPincode_post } from "./controller/PostFunctions.js";
 
 dotenv.config();
 
@@ -35,6 +34,6 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use("/", AuthRoutes);
 
-app.get("/", covidData_api);
+app.get("/", covidData_post);
 
 app.post("/fetchPincode", fetchPincode_post);

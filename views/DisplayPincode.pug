@@ -4,8 +4,12 @@ block style
 
 block content 
     .container 
-        h1
+        form(action="/fetchPincode", method="post") Search By PinCode 
+          input#pincode(type="text", name="pincode") 
+          input(type="date", name="date")
+          button(type="submit") Search    
         .box
+            h1=message
             .header 
             each center in centers
                 .displayBlock 
