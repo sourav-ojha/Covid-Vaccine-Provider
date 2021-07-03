@@ -27,15 +27,13 @@ export const covidData_api = async (cb) => {
 };
 
 export const fetchPincode_api = async (pincode, date, cb) => {
-  console.log(pincode, date, "in api");
   await axios
     .get(
       `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${pincode}&date=${date}`,
       Apiconfig
     )
     .then((response) => {
-      console.log(response.data);
-      // console.log("this si ----------", response.data.centers[0].sessions);
       return cb(response.data);
-    });
+    })
+    .catch((err) => console.log(err));
 };

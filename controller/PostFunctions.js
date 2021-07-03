@@ -7,12 +7,13 @@ export const fetchPincode_post = async (req, res) => {
     date = result[2] + "-" + result[1] + "-" + result[0];
     console.log(date, req.body);
     const data = fetchPincode_api(pincode, date, (data) => {
-      console.log(data.centers.length);
+      console.log(data.centers);
       if (data.centers.length !== 0) {
-        console.log("this works:", data);
-        res.render("DisplayPincode.pug", { centers: data.centers });
+        res.render("DisplayPincode.pug", {
+          centers: data.centers,
+          message: "",
+        });
       } else {
-        console.log("its on");
         res.render("DisplayPincode.pug", {
           message: "vaccine not available",
           centers: [],

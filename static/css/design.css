@@ -11,6 +11,12 @@
   width: 160px;
   height: 160px;
 }
+.nav_logo {
+  height: 50px;
+  width: 50px;
+  background-color: #0066cc;
+  color: red;
+}
 .head {
   display: grid;
   place-items: center;
