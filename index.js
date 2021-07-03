@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import { dbConn } from "./config/db.js";
 import AuthRoutes from "./routes/auth.routes.js";
 import AdminRoutes from "./routes/admin.routes.js";
+import PublicRoutes from "./routes/public.routes.js";
 import {
   covidData_post,
   fetchPincode_post,
@@ -30,16 +31,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(express.static("./"));
-
-// Auth Routes - Login and Register
+app.use(express.static("./static"));
 
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
+// Auth Routes - Login and Register
+
 app.use("/", AuthRoutes);
+app.use("/", PublicRoutes);
 app.use("/admin", AdminRoutes);
-app.get("/", covidData_post);
+
 
 app.post("/fetchPincode", fetchPincode_post);
 

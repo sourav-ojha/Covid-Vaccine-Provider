@@ -1,61 +1,122 @@
-block style 
-style 
-  include ../static/css/index.css
 doctype html
-html
-  head
-    title Wheel Box
-    block scripts
-    block style 
-  body
-    div#navbar 
-      ul 
-        li #[a(href = "/home") Home]
-        li #[a(href = "/") About]
-        li #[a(href = "/") FAQ]
-        li #[a(href = "/contact") Contact Us]
-        li #[a(href = "/user/login") User Login]
-        li #[a(href = "/admin/login") Admin Login]
+head
+  link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous')
+  link(rel='stylesheet' href='/css/design.css')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Covid Vaccine Provider
+  style.
+    body {
+        font-family: Verdana;
+        background: #000000;
+    }
 
-    block content  
-      .box
-        .head Last Updated   
-          span=CR.lastupdatedtime 
-        .cards 
-          .card 
-            .text Confirmed
-            .value=CR.confirmed
-          .card 
-            .text Active
-            .value=CR.active
-          .card 
-            .text Deaths
-            .value=CR.deaths
-          .card 
-            .text Recovered
-            .value=CR.recovered
-          
-        .head Today's Stats
-        .cards 
-          .card 
-            .text Confirmed
-            .value=CR.newconfirmed
-          .card 
-            .text Deaths
-            .value=CR.newdeaths
-          .card 
-            .text Recovered
-            .value=CR.newrecovered
-
-        form(action="/fetchPincode", method="post") Search By PinCode 
-          input#pincode(type="text", name="pincode") 
+.conatiner 
+  .header 
+    .logo 
+      img(src='/images/logo4.gif' alt='image not uploaded')
+    .head 
+      h1.h1  Covid Vaccine Provider
+  nav.navbar.navbar-expand-sm.bg-danger.navbar-dark.sticky-top.py-3
+    a.navbar-brand(href='#') Logo
+    ul.navbar-nav
+      li.nav-item
+        a.nav-link(href='/about') About Us
+      li.nav-item
+        a.nav-link(href='/faq')
+          i.fas.fa-question-circle
+      li.nav-item
+      li.nav-item
+        a.nav-link(href='/contactUs')
+          i.fa.fa-address-book
+      a.nav-link(href='/login')
+        i.fas.fa-user-shield
+      li.nav-item
+        a.nav-link(href='/register')
+          i.fas.fa-user-cog
+  .carousel_center
+    #demo.carousel.slide(data-ride='carousel')
+      ul.carousel-indicators
+        li.active(data-target='#demo' data-slide-to='0')
+        li(data-target='#demo' data-slide-to='1')
+        li(data-target='#demo' data-slide-to='2')
+      .carousel-inner
+        .carousel-item.active
+          img(src='/images/pic1.jpg' alt='Los Angeles' width='1300' height='500')
+          .carousel-caption
+            h3 Los Angeles
+            p We had such a great time in LA!
+        .carousel-item
+          img(src='/images/pic2.jpg' alt='Chicago' width='1300' height='500')
+          .carousel-caption
+            h3 Chicago
+            p Thank you, Chicago!
+        .carousel-item
+          img(src='/images/pic3.jpg' alt='New York' width='1300' height='500')
+          .carousel-caption
+            h3 New York
+            p We love the Big Apple!
+      a.carousel-control-prev(href='#demo' data-slide='prev')
+        span.carousel-control-prev-icon
+      a.carousel-control-next(href='#demo' data-slide='next')
+        span.carousel-control-next-icon
+  hr.line
+  .buster_list 
+    a(href='/myth')
+      img.rounded-circle(src='/images/link1.gif' alt='error')
+    a(href='/guide')
+      img.rounded-circle(src='/images/link2.gif' alt='error')
+    a(href='/immunity')
+      img.rounded-circle(src='/images/link3.gif' alt='error')
+    a(href='/stats')
+      img.rounded-circle(src='/images/link4.gif' alt='error')
+  
+  .forms 
+    form.pincode_form(action="/fetchPincode", method="post") 
+      h4 Search By PinCode 
+      .pincode_input 
+        .pincode
+          input#pincode(type="text", name="pincode" placeholder="Enter Pincode") 
+        .pincode_date
           input(type="date", name="date")
-          button(type="submit") Search    
-         
+      form_btn 
+        button.btn.btn-primary(type="submit") Search 
+    form.login_form(action='/login' method='POST')
+      h4 Login
+      .form-group
+          label(for='email') Email
+          input.form-control(type='email', name='email' placeholder='Email' autofocus=true)
+      .form-group
+          label(for='password') Password
+          input.form-control(type='password', name='password')
+      .form_btn
+          button.btn.btn-primary(type='submit') Log-in  
 
+  .partition .
 
-    footer#footer 
-      |   Copyright © 2021 www.Co-Vaccine-Provider.com | All Rights Reserved.   
-        
-script(src="../static/js/index.js") 
-      
+  .video 
+    .embed
+      iframe(width='560' height='315' src='https://www.youtube.com/embed/xVu_I6WCsto?autoplay=0' allow='autoplay' title='YouTube video player' frameborder='0' allowfullscreen='')
+  
+  .covid_stats
+    .stat_head Last Updated   
+      span=CR.lastupdatedtime 
+    .stat_cards 
+      .stat_card 
+        .text Confirmed
+        .value=CR.confirmed
+      .stat_card 
+        .text Active
+        .value=CR.active
+      .stat_card 
+        .text Deaths
+        .value=CR.deaths
+      .stat_card 
+        .text Recovered
+        .value=CR.recovered
+    

@@ -8,7 +8,7 @@ const router = express.Router();
 
 // Register Routes
 router.get("/register", (req, res) => {
-  res.render("auth/UserReg.pug");
+  res.render("auth/register.pug");
 });
 
 
@@ -19,7 +19,7 @@ router.post("/register", UserRegister);
 router.post("/login", UserLogin);
 
 router.get("/login", (req, res) => {
-  res.render("auth/UserLogin.pug");
+  res.render("auth/login.pug");
 });
 
 

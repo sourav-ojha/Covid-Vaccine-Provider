@@ -1,0 +1,93 @@
+doctype html
+head
+  link(rel='stylesheet' href='design.css')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+.container
+  form.was-validated(action='/form' method='POST')
+    .form-group
+      label(for='fname') First Name:
+      input#fname.form-control(type='text' placeholder='Enter First name' name='fname' required='')
+      .valid-feedback Valid.
+      .invalid-feedback Please fill out this field.
+    .form-group
+      label(for='uname') Second Name:
+      input#sname.form-control(type='text' placeholder='Enter Second Name' name='sname' required='')
+      .valid-feedback Valid.
+      .invalid-feedback Please fill out this field.
+    .form-group
+      label(for='age') Age:
+      input#age.form-control(type='number' placeholder='Enter your age' name='age' required='')
+      .valid-feedback Valid.
+      .invalid-feedback Please fill out this field.
+    .form-group
+      label(for='phn') Phone Number:
+      input#phn.form-control(type='number' placeholder='Enter your phone number' name='phn' required='')
+      .valid-feedback Valid.
+      .invalid-feedback Please fill out this field.
+    select.custom-select.mb-3(name='state')
+      option(selected='') Select your State
+      option(value='volvo') Andhra Pradesh
+      option(value='fiat') Arunachal Pradesh
+      option(value='audi') Assam
+      option(value='volvo') Bihar
+      option(value='volvo') Chattisgarh
+      option(value='volvo') Goa
+      option(value='volvo') Gujarat
+      option(value='volvo') Haryana
+      option(value='volvo') Himachal Pradesh
+      option(value='volvo') jharkhand
+      option(value='volvo') karnataka
+      option(value='volvo') Kerala
+      option(value='volvo') Madhya Pradesh
+      option(value='volvo') Maharashtra
+      option(value='volvo') Manipur
+      option(value='volvo') Meghalaya
+      option(value='volvo') Mizorum
+      option(value='volvo') Nagaland
+      option(value='volvo') Odisha
+      option(value='volvo') Punjab
+      option(value='volvo') Rajasthan
+      option(value='volvo') Sikkim
+      option(value='volvo') Tamil Nadu
+      option(value='volvo') Telangana
+      option(value='volvo') Tripura
+      option(value='volvo') Uttrakhand
+      option(value='volvo') Uttar Pradesh
+      option(value='volvo') West bengal
+      option(value='volvo') Jammu and Kashmir
+    .form-group
+      label(for='city') Select Your City:
+      input#city.form-control(type='text' placeholder='Enter your city' name='city' required='')
+      .valid-feedback Valid.
+      .invalid-feedback Please fill out this field.
+    .form-group
+      label(for='email') Email:
+      input#email.form-control(type='text' placeholder='Enter your email' name='email' required='')
+      .valid-feedback Valid.
+      .invalid-feedback Please fill out this field.
+    .form-group
+      label(for='adh') Adhaar Number:
+      input#adh.form-control(type='number' placeholder='Enter your Adhaar Number' name='adh' required='')
+      .valid-feedback Valid.
+      .invalid-feedback Please fill out this field.
+    .form-group.form-check
+      label.form-check-label
+        input.form-check-input(type='checkbox' name='remember' required='')
+        |  I agree to the mentioned 
+        button.btn.btn-primary(type='button' data-toggle='collapse' data-target='/') Policy
+        #demo.collapse
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          | sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          | quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        .valid-feedback Valid.
+        .invalid-feedback Check this checkbox to continue.
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          button.btn.btn-default(type='submit') Submit
