@@ -51,7 +51,7 @@ head
         .carousel-item.active
           img(src='/images/covid-1.jpg' alt='Covid Guidelines' width='1470' height='500')
         .carousel-item
-          img(src='/images/vaccine_1.png' alt='Get Vaccinated' width='1470' height='500')
+          img(src='/images/covid-4.png' alt='Get Vaccinated' width='1470' height='500')
         .carousel-item
           img(src='/images/covid-3.png' alt='Maintain Distance' width='1470' height='500')
       a.carousel-control-prev(href='#demo' data-slide='prev')
@@ -102,29 +102,29 @@ head
     .stat_cards 
       .stat_card 
         .text Confirmed
-        .value=CR.confirmed
+        .value.count=CR.confirmed
       .stat_card 
         .text Active
-        .value=CR.active
+        .value.count=CR.active
       .stat_card 
         .text Deaths
-        .value=CR.deaths
+        .value.count=CR.deaths
       .stat_card 
         .text Recovered
-        .value=CR.recovered
+        .value.count=CR.recovered
     
     .covid_stats
       .stat_head_daily Today's Stats
       .stat_cards 
         .stat_card 
           .text Confirmed
-          .value=CR.newconfirmed
+          .value.count=CR.newconfirmed
         .stat_card 
           .text Deaths
-          .value=CR.newdeaths
+          .value.count=CR.newdeaths
         .stat_card 
           .text Recovered
-          .value=CR.newrecovered
+          .value.count=CR.newrecovered
     
 
 

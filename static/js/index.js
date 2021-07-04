@@ -17,3 +17,35 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+function counter(flag) {
+  flag += 1;
+  if (flag === 1) {
+    $(".count").each(function () {
+      $(this)
+        .prop("Counter", 0)
+        .animate(
+          {
+            Counter: $(this).text(),
+          },
+          {
+            duration: 3000,
+            easing: "linear",
+            step: function (now) {
+              $(this).text(Math.ceil(now));
+            },
+          }
+        );
+    });
+  }
+  return flag;
+}
+
+let flag = 0;
+$(window).scroll(function () {
+  console.log($(window).scrollTop() + $(window).height());
+  if ($(window).scrollTop() + $(window).height() > 1830) {
+    flag = counter(flag);
+    console.log($(window).height(), flag);
+  } else flag = 0;
+});
