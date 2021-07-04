@@ -3,8 +3,7 @@ head
   link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous')
   link(rel='stylesheet' href='/css/design.css')
   link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
-  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+  script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js") 
   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
   meta(charset='UTF-8')
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
@@ -16,30 +15,32 @@ head
         background: #000000;
     }
 
-.conatiner 
+.container_home 
   .header 
     .logo 
       img(src='/images/logo4.gif' alt='image not uploaded')
     .head 
       h1.h1  Covid Vaccine Provider
-  nav.navbar.navbar-expand-sm.bg-danger.navbar-dark.sticky-top.py-3
+
+  nav.navbar.navbar-expand-lg.navbar-dark.nav_norm#navbar_top     
     a.navbar-brand(href='#') 
       img.nav_logo(src="/images/LOGO.svg", alt="LOGO")
-    ul.navbar-nav
-      li.nav-item
-        a.nav-link(href='/about') About Us
-      li.nav-item
-        a.nav-link(href='/faq')
-          i.fas.fa-question-circle
-      li.nav-item
-      li.nav-item
-        a.nav-link(href='/contactUs')
-          i.fa.fa-address-book
-      a.nav-link(href='/login')
-        i.fas.fa-user-shield
-      li.nav-item
-        a.nav-link(href='/register')
-          i.fas.fa-user-cog
+    .collapse.navbar-collapse
+      ul.navbar-nav
+        li.nav-item
+          a.nav-link(href='/') Home
+        li.nav-item
+          a.nav-link(href='/contactUs') Contact Us
+        li.nav-item
+          a.nav-link(href='/about') About Us
+        li.nav-item
+          a.nav-link(href='/faq') FAQ
+      ul.navbar-nav
+        li.nav-item
+          a.nav-link(href='#form') Login
+        li.nav-item
+          a.nav-link(href='/register') Register
+
   .carousel_center
     #demo.carousel.slide(data-ride='carousel')
       ul.carousel-indicators
@@ -48,25 +49,16 @@ head
         li(data-target='#demo' data-slide-to='2')
       .carousel-inner
         .carousel-item.active
-          img(src='/images/pic1.jpg' alt='Los Angeles' width='1300' height='500')
-          .carousel-caption
-            h3 Los Angeles
-            p We had such a great time in LA!
+          img(src='/images/covid-1.jpg' alt='Covid Guidelines' width='1470' height='500')
         .carousel-item
-          img(src='/images/pic2.jpg' alt='Chicago' width='1300' height='500')
-          .carousel-caption
-            h3 Chicago
-            p Thank you, Chicago!
+          img(src='/images/vaccine_1.png' alt='Get Vaccinated' width='1470' height='500')
         .carousel-item
-          img(src='/images/pic3.jpg' alt='New York' width='1300' height='500')
-          .carousel-caption
-            h3 New York
-            p We love the Big Apple!
+          img(src='/images/covid-3.png' alt='Maintain Distance' width='1470' height='500')
       a.carousel-control-prev(href='#demo' data-slide='prev')
         span.carousel-control-prev-icon
       a.carousel-control-next(href='#demo' data-slide='next')
         span.carousel-control-next-icon
-  hr.line
+
   .buster_list 
     a(href='/myth')
       img.rounded-circle(src='/images/link1.gif' alt='error')
@@ -76,7 +68,7 @@ head
       img.rounded-circle(src='/images/link3.gif' alt='error')
     a(href='/stats')
       img.rounded-circle(src='/images/link4.gif' alt='error')
-  
+  .partition#form .
   .forms 
     form.pincode_form(action="/fetchPincode", method="post") 
       h4 Search By PinCode 
@@ -91,7 +83,7 @@ head
       h4 Login
       .form-group
           label(for='email') Email
-          input.form-control(type='email', name='email' placeholder='Email' autofocus=true)
+          input.form-control(type='email', name='email' placeholder='Email' )
       .form-group
           label(for='password') Password
           input.form-control(type='password', name='password')
@@ -121,3 +113,22 @@ head
         .text Recovered
         .value=CR.recovered
     
+    .covid_stats
+      .stat_head_daily Today's Stats
+      .stat_cards 
+        .stat_card 
+          .text Confirmed
+          .value=CR.newconfirmed
+        .stat_card 
+          .text Deaths
+          .value=CR.newdeaths
+        .stat_card 
+          .text Recovered
+          .value=CR.newrecovered
+    
+
+
+    footer#footer 
+      |   Copyright © 2021 www.Co-Vaccine-Provider.com | All Rights Reserved.   
+        
+script(src="js/index.js") 

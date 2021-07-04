@@ -35,27 +35,6 @@ html
             .text Recovered
             .value=CR.recovered
           
-        .head Today's Stats
-        .cards 
-          .card 
-            .text Confirmed
-            .value=CR.newconfirmed
-          .card 
-            .text Deaths
-            .value=CR.newdeaths
-          .card 
-            .text Recovered
-            .value=CR.newrecovered
-
-        form(action="/fetchPincode", method="post") Search By PinCode 
-          input#pincode(type="text", name="pincode") 
-          input(type="date", name="date")
-          button(type="submit") Search    
-         
-
-
-    footer#footer 
-      |   Copyright © 2021 www.Co-Vaccine-Provider.com | All Rights Reserved.   
         
 script(src="../static/js/index.js") 
        

@@ -1,7 +1,11 @@
-.conatiner {
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: black;
+}
+.container_home {
   display: grid;
-  width: 100%;
-  height: 100%;
 }
 .header {
   display: grid;
@@ -21,9 +25,24 @@
   display: grid;
   place-items: center;
 }
+
+.nav_norm {
+  color: #dfdfdf;
+  background: #c4c0db30;
+  scroll-behavior: smooth;
+}
+.collapse {
+  justify-content: space-between;
+}
+nav {
+  font-size: 1.1rem;
+  transition: 1s ease;
+}
+
 .carousel_center {
   display: grid;
   place-items: center;
+  transition: 1s ease;
 }
 .card {
   width: 300px;
@@ -63,9 +82,7 @@
   margin-left: 80px;
   padding: 50px;
 }
-body {
-  background-color: black;
-}
+
 .forms {
   display: grid;
   grid-template-columns: auto auto;
@@ -144,6 +161,13 @@ body {
   font-size: 1.2 rem;
   font-weight: 600;
 }
+.stat_head_daily {
+  text-align: center;
+  color: #0066cc;
+  background-color: white;
+  font-size: 1.2 rem;
+  font-weight: 600;
+}
 
 .text {
   text-align: center;
@@ -155,4 +179,10 @@ body {
   font-size: 1.5rem;
   color: #0066ff;
   font-weight: 600;
+}
+
+#footer {
+  background: #0066cc;
+  text-align: center;
+  color: #dfdfdf;
 }
