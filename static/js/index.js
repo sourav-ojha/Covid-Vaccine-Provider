@@ -1,3 +1,6 @@
+// AOS initialize
+AOS.init();
+
 document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", function () {
     var navBar = document.getElementById("navbar_top");

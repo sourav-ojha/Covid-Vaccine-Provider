@@ -99,7 +99,8 @@ body {
   height: 270px;
 }
 
-.login_form {
+.login_form,
+.pincode_form {
   display: grid;
   place-items: center;
   grid-template-rows: auto 1fr 1fr 1fr;
@@ -119,7 +120,7 @@ body {
   place-items: center;
 }
 
-.pincode_form {
+/* .pincode_form {
   display: grid;
   place-items: center;
   background-color: transparent;
@@ -127,7 +128,7 @@ body {
   padding: 10px;
   display: grid;
   grid-template-rows: auto 1fr 1fr 1fr;
-}
+} */
 .pincode,
 .pincode_date {
   text-align: center;

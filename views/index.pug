@@ -1,6 +1,7 @@
 doctype html
 head
   link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous')
+  link(rel="stylesheet", href="css/aos.css") 
   link(rel='stylesheet' href='/css/design.css')
   link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
   script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js") 
@@ -59,26 +60,27 @@ head
         span.carousel-control-next-icon
 
   .buster_list 
-    a(href='/myth')
+    a(href='/myth' data-aos="zoom-in" data-aos-duration="500")
       img.rounded-circle(src='/images/link1.gif' alt='error')
-    a(href='/guide')
+    a(href='/guide' data-aos="zoom-in" data-aos-duration="500")
       img.rounded-circle(src='/images/link2.gif' alt='error')
-    a(href='/immunity')
+    a(href='/immunity' data-aos="zoom-in" data-aos-duration="500")
       img.rounded-circle(src='/images/link3.gif' alt='error')
-    a(href='/stats')
+    a(href='/stats' data-aos="zoom-in" data-aos-duration="500")
       img.rounded-circle(src='/images/link4.gif' alt='error')
   .partition#form .
   .forms 
-    form.pincode_form(action="/fetchPincode", method="post") 
+    form.pincode_form(action="/fetchPincode", method="post" data-aos="fade-right") 
       h4 Search By PinCode 
-      .pincode_input 
-        .pincode
-          input#pincode(type="text", name="pincode" placeholder="Enter Pincode") 
-        .pincode_date
-          input(type="date", name="date")
+      .form-group 
+        label(for='pincode') pincode
+        input.form-control#pincode(type="text", name="pincode" placeholder="Enter Pincode") 
+      .form-group
+        label(for='date') Date
+        input.form-control(type="date", name="date")
       form_btn 
         button.btn.btn-primary(type="submit") Search 
-    form.login_form(action='/login' method='POST')
+    form.login_form(action='/login' method='POST' data-aos="fade-left")
       h4 Login
       .form-group
           label(for='email') Email
@@ -92,7 +94,7 @@ head
   .partition .
 
   .video 
-    .embed
+    .embed(data-aos="zoom-in")
       iframe(width='560' height='315' src='https://www.youtube.com/embed/xVu_I6WCsto?autoplay=0' allow='autoplay' title='YouTube video player' frameborder='0' allowfullscreen='')
   
   .covid_stats
@@ -130,4 +132,5 @@ head
     footer#footer 
       |   Copyright © 2021 www.Co-Vaccine-Provider.com | All Rights Reserved.   
         
+script(src="js/aos.js") 
 script(src="js/index.js") 
