@@ -7,7 +7,10 @@ html {
   scroll-behavior: smooth;
 }
 body {
+  font-family: Verdana;
   background-color: black;
+  width: 100vw;
+  overflow-x: hidden;
 }
 .container_home {
   display: grid;
@@ -54,6 +57,21 @@ body {
   place-items: center;
   transition: 1s ease;
 }
+
+.carousel-item {
+  overflow: hidden;
+}
+
+.carousel-item > img {
+  width: 1470px;
+  height: 500px;
+  transition: 1s ease;
+}
+
+.carousel-item > img:hover {
+  transform: scale(1.2);
+}
+
 .card {
   width: 300px;
   margin-top: 3%;
@@ -118,6 +136,14 @@ body {
   display: grid;
   grid-template-columns: auto auto auto auto;
   place-items: center;
+}
+
+.buster_list > a > img {
+  transition: 2s ease;
+}
+
+.buster_list > a > img:hover {
+  transform: rotate(360deg);
 }
 
 /* .pincode_form {
