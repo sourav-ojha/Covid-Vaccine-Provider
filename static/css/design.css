@@ -1,3 +1,8 @@
+@font-face {
+  font-family: uchen;
+  src: url("fonts/DDC_Uchen.ttf") format("truetype");
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -19,11 +24,14 @@ body {
   height: 50px;
   width: 50px;
   background-color: #0066cc;
-  color: red;
 }
 .head {
   display: grid;
   place-items: center;
+  font-family: "uchen";
+  font-size: 3.3rem;
+  font-weight: 700;
+  color: red;
 }
 
 .nav_norm {
@@ -34,8 +42,10 @@ body {
 .collapse {
   justify-content: space-between;
 }
-nav {
+#navbar_top {
   font-size: 1.1rem;
+  color: #fff;
+  font-weight: 550;
   transition: 1s ease;
 }
 
