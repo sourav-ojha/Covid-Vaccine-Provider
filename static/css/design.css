@@ -31,10 +31,31 @@ body {
 .head {
   display: grid;
   place-items: center;
+  color: red;
+  background-image: url("/images/bg2.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.head_bg {
+  background: #71647994;
+  width: 650px;
+  height: 100px;
+  opacity: 0.4;
+  border-radius: 10px;
+  box-shadow: 0 30px 10px 3px #000;
+}
+.head_content {
+  position: absolute;
+  top: 40px;
+  left: 35%;
   font-family: "uchen";
   font-size: 3.3rem;
+  color: #000;
+  -webkit-text-fill-color: cornsilk;
   font-weight: 700;
-  color: red;
+  text-shadow: 2px 2px black;
+  letter-spacing: 2px;
 }
 
 .nav_norm {
