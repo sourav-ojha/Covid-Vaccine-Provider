@@ -64,12 +64,12 @@ export const UserLogin = async (req, res) => {
         token: token,
       };
       res.cookie("user", token, {
-        expires: new Date(Date.now() + 300000),
+        // expires: new Date(Date.now() + 300000),
         httpOnly: true,
       });
       if (existUser.role === "admin") {
         res.redirect("/admin/dashboard");
-      } else res.json({ user: existUser });
+      } else res.redirect("/user/profile");
     } else res.json("user Invalid");
   } catch (error) {
     res.json("error");

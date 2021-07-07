@@ -16,8 +16,9 @@ head
     .logo 
       img(src='/images/logo4.gif' alt='image not uploaded')
     .head 
-      .head_bg 
-      .head_content Covid Vaccine Provider
+      .h 
+        .head_bg 
+        .head_content Covid Vaccine Provider
 
   nav.navbar.navbar-expand-lg.navbar-dark.nav_norm#navbar_top     
     a.navbar-brand(href='/') 
@@ -71,20 +72,24 @@ head
       h4 Search By PinCode 
       .form-group 
         label(for='pincode') pincode
-        input.form-control#pincode(type="text", name="pincode" placeholder="Enter Pincode") 
+        input.form-control#pincode(type="text", name="pincode" placeholder="Enter Pincode" required)
+        .invalid-feedback Please fill out this field. 
       .form-group
         label(for='date') Date
-        input.form-control(type="date", name="date")
+        input.form-control(type="date", name="date" required)
+        .invalid-feedback Please input date.
       form_btn 
         button.btn.btn-primary(type="submit") Search 
     form.login_form(action='/login' method='POST' data-aos="fade-left")
       h4 Login
       .form-group
           label(for='email') Email
-          input.form-control(type='email', name='email' placeholder='Email' )
+          input.form-control(type='email', name='email' placeholder='Email' required  )
+          .invalid-feedback Please Enter your Email ID.
       .form-group
           label(for='password') Password
-          input.form-control(type='password', name='password')
+          input.form-control(type='password', name='password' required)
+          .invalid-feedback Please Enter your password.
       .form_btn
           button.btn.btn-primary(type='submit') Log-in  
 

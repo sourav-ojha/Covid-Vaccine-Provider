@@ -1,0 +1,133 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  link(href='https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css' rel='stylesheet')
+  link(rel='stylesheet' href='/css/table.css')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+div
+  nav.bg-gray-800
+    .max-w-7xl.mx-auto.px-4(class='sm:px-6 lg:px-8')
+      .flex.items-center.justify-between.h-16
+        .flex.items-center
+          .flex-shrink-0
+            img.h-8.w-8(src='../../static/images/LOGO.svg' alt='Workflow')
+          .hidden(class='md:block')
+            .ml-10.flex.items-baseline.space-x-4
+              // Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"
+              a.bg-gray-900.text-white.px-3.py-2.rounded-md.text-sm.font-medium(href='#') Registered
+              a.text-gray-300.px-3.py-2.rounded-md.text-sm.font-medium(href='#' class='hover:bg-gray-700 hover:text-white') Vaccinated
+              a.text-gray-300.px-3.py-2.rounded-md.text-sm.font-medium(href='#' class='hover:bg-gray-700 hover:text-white') Requested
+              a.text-gray-300.px-3.py-2.rounded-md.text-sm.font-medium(href='#' class='hover:bg-gray-700 hover:text-white') Feedback
+        .hidden(class='md:block')
+          .ml-4.flex.items-center(class='md:ml-6')
+            button.bg-gray-800.p-1.rounded-full.text-gray-400(class='hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white')
+              span.sr-only View notifications
+              // Heroicon name: outline/bell
+              svg.h-6.w-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke='currentColor' aria-hidden='true')
+                path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9')
+            // Profile dropdown
+            .ml-3.relative
+              div
+                button#user-menu-button.max-w-xs.bg-gray-800.rounded-full.flex.items-center.text-sm(type='button' class='focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white' aria-expanded='false' aria-haspopup='true' onclick='openProfileBtn()')
+                  span.sr-only Open user menu
+                  img.h-8.w-8.rounded-full(src='../../static/images/av.png' alt='')
+              //
+                Dropdown menu, show/hide based on menu state.
+                Entering: "transition ease-out duration-100"
+                From: "transform opacity-0 scale-95"
+                To: "transform opacity-100 scale-100"
+                Leaving: "transition ease-in duration-75"
+                From: "transform opacity-100 scale-100"
+                To: "transform opacity-0 scale-95"
+              #open_profile_menu.hide.origin-top-right.absolute.right-0.mt-2.w-48.rounded-md.shadow-lg.py-1.bg-white.ring-1.ring-black.ring-opacity-5(class='focus:outline-none' role='menu' aria-orientation='vertical' aria-labelledby='user-menu-button' tabindex='-1')
+                // Active: "bg-gray-100", Not Active: ""
+                a#user-menu-item-0.block.px-4.py-2.text-sm.text-gray-700(href='#' role='menuitem' tabindex='-1') Your Profile
+                a#user-menu-item-1.block.px-4.py-2.text-sm.text-gray-700(href='#' role='menuitem' tabindex='-1') Settings
+                a#user-menu-item-2.block.px-4.py-2.text-sm.text-gray-700(href='#' role='menuitem' tabindex='-1') Sign out
+        .-mr-2.flex(class='md:hidden')
+          // Mobile menu button
+          button.bg-gray-800.inline-flex.items-center.justify-center.p-2.rounded-md.text-gray-400(type='button' class='hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white' aria-controls='mobile-menu' aria-expanded='false')
+            span.sr-only Open main menu
+            //
+              Heroicon name: outline/menu
+              Menu open: "hidden", Menu closed: "block"
+            svg.block.h-6.w-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke='currentColor' aria-hidden='true')
+              path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 6h16M4 12h16M4 18h16')
+            //
+              Heroicon name: outline/x
+              Menu open: "block", Menu closed: "hidden"
+            svg.hidden.h-6.w-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke='currentColor' aria-hidden='true')
+              path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 18L18 6M6 6l12 12')
+    // Mobile menu, show/hide based on menu state.
+    #mobile-menu.(class='md:hidden')
+      .px-2.pt-2.pb-3.space-y-1(class='sm:px-3')
+        | Current: &quot;bg-gray-900 text-white&quot;, Default: &quot;text-gray-300 hover:bg-gray-700 hover:text-white&quot;
+        a.bg-gray-900.text-white.block.px-3.py-2.rounded-md.text-base.font-medium(href='#') Registered
+        a.text-gray-300.block.px-3.py-2.rounded-md.text-base.font-medium(href='#' class='hover:bg-gray-700 hover:text-white') Vaccinated
+        a.text-gray-300.block.px-3.py-2.rounded-md.text-base.font-medium(href='#' class='hover:bg-gray-700 hover:text-white') Requested
+        a.text-gray-300.block.px-3.py-2.rounded-md.text-base.font-medium(href='#' class='hover:bg-gray-700 hover:text-white') Feedback
+      .pt-4.pb-3.border-t.border-gray-700
+        .flex.items-center.px-5
+          .flex-shrink-0
+            img.h-10.w-10.rounded-full(src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80' alt='')
+          .ml-3
+            .text-base.font-medium.leading-none.text-white
+              | Admin
+            .text-sm.font-medium.leading-none.text-gray-400
+              | Admin@admin
+          button.ml-auto.bg-gray-800.flex-shrink-0.p-1.rounded-full.text-gray-400(class='hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white')
+            span.sr-only View notifications
+            // Heroicon name: outline/bell
+            svg.h-6.w-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke='currentColor' aria-hidden='true')
+              path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9')
+        .mt-3.px-2.space-y-1
+          a.block.px-3.py-2.rounded-md.text-base.font-medium.text-gray-400(href='#' class='hover:text-white hover:bg-gray-700') Your Profile
+          a.block.px-3.py-2.rounded-md.text-base.font-medium.text-gray-400(href='#' class='hover:text-white hover:bg-gray-700') Settings
+          a.block.px-3.py-2.rounded-md.text-base.font-medium.text-gray-400(href='#' class='hover:text-white hover:bg-gray-700') Sign out
+  header.bg-white.shadow
+    .max-w-7xl.mx-auto.py-6.px-4(class='sm:px-6 lg:px-8')
+      h1.text-3xl.font-bold.text-gray-900 Dashboard
+  main
+    .max-w-7xl.mx-auto.py-6(class='sm:px-6 lg:px-8')
+      | --&gt;
+      // Replace with your content
+      .flex.flex-col
+        .-my-2.overflow-x-auto(class='sm:-mx-6 lg:-mx-8')
+          .py-2.align-middle.inline-block.min-w-full(class='sm:px-6 lg:px-8')
+            .shadow.overflow-hidden.border-b.border-gray-200(class='sm:rounded-lg')
+              table.min-w-full.divide-y.divide-gray-200
+                thead.bg-gray-50
+                  tr
+                    th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(scope='col')
+                      | Name
+                    th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(scope='col')
+                      | Address
+                    th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(scope='col')
+                      | Status
+                    th.relative.px-6.py-3(scope='col')
+                      span.sr-only Accept
+                tbody.bg-white.divide-y.divide-gray-200
+                  tr
+                    td.px-6.py-4.whitespace-nowrap
+                      .flex.items-center
+                        .flex-shrink-0.h-10.w-10
+                          img.h-10.w-10.rounded-full(src='../../static/images/av.png' alt='')
+                        .ml-4
+                          .text-sm.font-medium.text-gray-900
+                            | Sourav Ojha
+                          .text-sm.text-gray-500
+                            | Soura@g.com
+                    td.px-6.py-4.whitespace-nowrap
+                      .text-sm.text-gray-900
+                        | Jharsuguda , Odisha
+                      .text-sm.text-gray-500 Optimization
+                    td.px-6.py-4.whitespace-nowrap
+                      span.px-2.inline-flex.text-xs.leading-5.font-semibold.rounded-full.bg-green-100.text-green-800
+                        | Vaccinated
+                    td.px-6.py-4.whitespace-nowrap.text-right.text-sm.font-medium
+                      a.text-indigo-600(href='#' class='hover:text-indigo-900') Accept
+      // /End replace
+// This example requires Tailwind CSS v2.0+
+script(src='/js/table.js')

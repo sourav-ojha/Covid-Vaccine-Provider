@@ -12,6 +12,9 @@ body {
   width: 100vw;
   overflow-x: hidden;
 }
+body::-webkit-scrollbar {
+  display: none;
+}
 .container_home {
   display: grid;
 }
@@ -31,13 +34,12 @@ body {
 .head {
   display: grid;
   place-items: center;
-  color: red;
   background-image: url("/images/bg2.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-.head_bg {
+/* .head_bg {
   background: #71647994;
   width: 650px;
   height: 100px;
@@ -56,7 +58,35 @@ body {
   font-weight: 700;
   text-shadow: 2px 2px black;
   letter-spacing: 2px;
+} */
+
+/* Experiment */
+
+.head_bg {
+  background: #71647994;
+  width: 650px;
+  height: 100px;
+  position: absolute;
+  opacity: 0.4;
+  border-radius: 10px;
+  box-shadow: 0 30px 10px 3px #000;
 }
+
+.head_content {
+  position: relative;
+  width: 650px;
+  height: 100px;
+  text-align: center;
+  padding: 10px;
+  font-family: "uchen";
+  font-size: 3.3rem;
+  -webkit-text-fill-color: cornsilk;
+  font-weight: 700;
+  text-shadow: 2px 2px black;
+  letter-spacing: 2px;
+}
+
+/* --------------------- */
 
 .nav_norm {
   color: #dfdfdf;
@@ -84,7 +114,7 @@ body {
 }
 
 .carousel-item > img {
-  width: 1470px;
+  width: 1490px;
   height: 500px;
   transition: 1s ease;
 }

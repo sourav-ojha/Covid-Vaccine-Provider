@@ -11,6 +11,9 @@ router.get("/register", (req, res) => {
 router.post("/register", UserRegister);
 
 // login Routes
+router.get("/login", (req,res) => {
+  res.render("auth/UserLogin.pug")
+});
 router.post("/login", UserLogin);
 
 export default router;

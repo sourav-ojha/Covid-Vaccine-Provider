@@ -1,0 +1,95 @@
+doctype html
+head
+  link(rel='stylesheet' href="'https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'")
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  link(rel='stylesheet' href='/css/user.css')
+ 
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Profile 
+
+
+.profile_cont
+    .header 
+        h1
+        h4.username=user.name
+        span 
+            a(href="/user/logout") Logout 
+    .container_body 
+        .profile 
+            h3 Profile
+            .profile_details        
+                .data_block
+                    .label Name : 
+                    .value #{user.name}
+                .data_block
+                    .label Father's Name : 
+                    .value #{user.fathername}
+                .data_block
+                    .label  D.O.B : 
+                    .value #{user.dob}
+                .data_block
+                    .label Address : 
+                    .value #{user.Address}
+                .data_block
+                    .label   Phone Number : 
+                    .value #{ user.phno}
+                .data_block
+                    .label Gender : 
+                    .value #{ user.gender }
+                .data_block
+                    .label Email : 
+                    .value #{ user.email}
+                .data_block
+                    .label  Adhaar Card : 
+                    .value #{ user.aadhar}
+          
+            .right_group 
+                button.btn.btn-primary(type='button' data-toggle='modal' data-target='#myModal1')
+                    | Status of  vaccination
+                #myModal1.modal.fade
+                    .modal-dialog.modal-dialog-centered(style='color: rgb(54, 54, 88);')
+                        .modal-content
+                            .modal-header
+                                h4.modal-title Vaccine Status
+                                button.close(type='button' data-dismiss='modal') &times;
+                            .modal-body
+                                if user.vaccine_status 
+                                    | You are vaccninated with #{user.vaccineName} on #{user.vaccine_date} #{user.vaccine_time }
+                                else 
+                                    if user.vaccine_req 
+                                        if user.appointment_date
+                                            | Appointment Date : #{user.appointment_date}
+                                        else 
+                                            | You will be responded soon
+                                    else 
+                                        | You have not applied for Vaccination.
+                            .modal-footer
+                                button.btn.btn-danger(type='button' data-dismiss='modal') Close
+
+                if user.vaccine_req   
+                    button.btn.btn-primary(type='button' disabled)
+                        | Applied
+                else 
+                    button.btn.btn-primary(type='button' data-toggle='modal' data-target='#myModal2')
+                        | Apply For Vaccine
+                    #myModal2.modal.fade
+                        .modal-dialog.modal-dialog-centered(style='color: rgb(54, 54, 88);')
+                            .modal-content
+                                // Modal Header
+                                .modal-header
+                                    h4.modal-title  Enter Your Addhaar Number 
+                                    button.close(type='button' data-dismiss='modal') &times;
+                                //  Modal body
+                                .modal-body
+                                    form(action='/user/register/vaccine' method='POST')
+                                        .form-group
+                                            input#Adhaar.form-control(placeholder='Addhar Number' type='text' name='aadhar' required)
+                                        button.btn.btn-primary(type='submit') Apply
+                    
+
+script(src="/js/user.js") 
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
