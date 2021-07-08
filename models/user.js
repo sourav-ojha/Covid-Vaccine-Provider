@@ -37,3 +37,16 @@ const userSchema = mongoose.Schema({
 const User = mongoose.model("User", userSchema);
 
 export default User;
+
+export const fetchAllUser = async () => {
+  var userData = await User.find({ role: "user" });
+  return userData;
+};
+export const fetchVaccinatedUser = async () => {
+  var userData = await User.find({ vaccine_status: true });
+  return userData;
+};
+export const fetchRequestedUser = async () => {
+  var userData = await User.find({ vaccine_req: true });
+  return userData;
+};

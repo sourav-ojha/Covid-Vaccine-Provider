@@ -7,11 +7,6 @@ import AuthRoutes from "./routes/auth.routes.js";
 import AdminRoutes from "./routes/admin.routes.js";
 import PublicRoutes from "./routes/public.routes.js";
 import UserRoutes from "./routes/user.routes.js";
-import {
-  covidData_post,
-  fetchPincode_post,
-} from "./controller/PostFunctions.js";
-import { userAuthorize } from "./middleware/Authorization.js";
 
 dotenv.config();
 const app = express();
@@ -38,15 +33,11 @@ app.use(express.static("./static"));
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
-// Auth Routes - Login and Register
+// Routes
 
 app.use("/", AuthRoutes);
 app.use("/", PublicRoutes);
 app.use("/admin", AdminRoutes);
 app.use("/user", UserRoutes);
 
-app.post("/fetchPincode", fetchPincode_post);
 
-
-
-console.log("runing");

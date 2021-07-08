@@ -1,5 +1,6 @@
-import { covidData_api, fetchPincode_api } from "../api.js";
+import {  fetchPincode_api } from "../api.js";
 
+// Slot Availibility By Pincode
 export const fetchPincode_post = async (req, res) => {
   let { pincode, date } = req.body;
   try {
@@ -25,9 +26,4 @@ export const fetchPincode_post = async (req, res) => {
   }
 };
 
-export const covidData_post = (req, res) => {
-  covidData_api((data) => {
-    let covid_report = data[0].data.data[0];
-    res.render("index.pug", { CR: covid_report });
-  });
-};
+
