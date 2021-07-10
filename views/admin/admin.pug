@@ -1,0 +1,26 @@
+doctype html
+head
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+  link(rel='stylesheet' href='admin.css')
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+.container
+  ul.pagination.justify-content-center.pagination-lg(style='margin:160px 0px')
+    li.page-item
+      a.page-link(href='#') Previous
+    li.page-item
+      a.page-link(href='/admin/registered') Registered User
+    li.page-item
+      a.page-link(href='/admin/requested') Vaccination Request
+    li.page-item
+      a.page-link(href='/admin/vaccinated') Vaccinated User
+    li.page-item
+      a.page-link(href='/admin/feedback') Feedback
+    li.page-item
+      a.page-link(href='/admin/logout') Logout
+   

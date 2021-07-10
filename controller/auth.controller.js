@@ -4,18 +4,27 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
 export const UserRegister = async (req, res) => {
-  const { name, fathername, age, gender, phno, email, password } = req.body;
+  const { name, fathername, dob, gender, phno, email, password } = req.body;
   const existingUser = await User.findOne({ email });
   try {
     if (!existingUser) {
       const hashPass = await bcrypt.hash(password, 10);
+      const birth = new Date(dob);
+      var month_diff = Date.now() - birth.getTime();
+      var age_dt = new Date(month_diff);
+      var year = age_dt.getUTCFullYear();
+      var age = Math.abs(year - 1970);
+      console.log(age);
+
       var myData = new User({
         name,
         fathername,
+        dob: birth.toLocaleDateString(),
         age,
         gender,
         phno,
         email,
+        secretkey: password,
         password: hashPass,
       });
       await myData.save();
@@ -68,7 +77,7 @@ export const UserLogin = async (req, res) => {
         httpOnly: true,
       });
       if (existUser.role === "admin") {
-        res.redirect("/admin/dashboard");
+        res.redirect("/admin");
       } else res.redirect("/user/profile");
     } else res.json("user Invalid");
   } catch (error) {
