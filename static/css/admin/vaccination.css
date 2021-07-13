@@ -14,10 +14,19 @@ body {
   background-color: rgb(26, 26, 63);
 }
 
+tr {
+  text-align: center;
+}
+
+.box_form {
+  display: grid;
+  grid-template-columns: 100px auto;
+  place-items: center;
+}
+
 .hover_btn {
-  display: flex;
-  flex-direction: row;
-  width: 150px;
+  display: block;
+  width: 100px;
 }
 
 td {

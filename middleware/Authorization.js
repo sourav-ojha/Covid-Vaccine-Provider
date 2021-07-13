@@ -17,7 +17,6 @@ export const adminAuthorize = async (req, res, next) => {
   try {
     const token = req.cookies.user;
     const verifyUser = jwt.verify(token, secret);
-    console.log("this success");
     const user = await User.findOne({ _id: verifyUser.id });
     if (user.role === "admin") {
       next();

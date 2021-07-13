@@ -8,7 +8,7 @@ head
   meta(charset='UTF-8')
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Document
+  title Registered User
 .container
   a(href='/admin')
     button#btn.btn.btn-primary Dashboard
@@ -18,29 +18,30 @@ head
   table.table.table-dark.table-hover
     thead
       tr
-        th Name
-        th Father&apos;s Name
-        th DOB 
+        th  Name
+        th  age 
         th  Phone Number 
         th  Gender 
         th  Email  
         th  Adhaar Card 
+        th  Status
     tbody#myTable
       each user in data
         tr
           td=user.name
-          td=user.fathername 
-          td=user.dob 
+          td=user.age 
           td=user.phno 
           td=user.gender 
           td=user.email 
           td=user.aadhar 
-script.
-  $(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-  var value = $(this).val().toLowerCase();
-  $("#myTable tr").filter(function() {
-  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-  });
-  });
-  });
+          if(user.vaccine_status) 
+            td(style={'color':'lightgreen', 'font-weight':'600', 'letter-spacing':'1.2px'}) Vaccinated 
+          else if (user.appointment_date)
+            td(style={'color':'yellow'}) Date appointed
+          else if (user.vaccine_req)
+            td(style={'color':'orange', 'font-weight':'600', 'letter-spacing':'1.2px'}) Requested
+          else   
+            td(style={'color':'#dfdfdf'}) Not Vaccinated
+             
+           
+script(src="/js/admin.js") 

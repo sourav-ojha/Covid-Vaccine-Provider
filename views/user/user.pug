@@ -55,23 +55,28 @@ head
                                 button.close(type='button' data-dismiss='modal') &times;
                             .modal-body
                                 if user.vaccine_status 
-                                    | You are vaccninated with #{user.vaccineName} on #{user.vaccine_date} #{user.vaccine_time }
+                                    | You are vaccninated with Covishied on #{user.vaccinated_date} 
                                 else 
-                                    if user.vaccine_req 
-                                        if user.appointment_date
+                                    if user.appointment_date
                                             | Appointment Date : #{user.appointment_date}
-                                        else 
-                                            | You will be responded soon
+                                            br
+                                            br
+                                            b Visit your nearest vaccination center
                                     else 
-                                        | You have not applied for Vaccination.
+                                        if user.vaccine_req 
+                                                | You will be responded soon
+                                        else 
+                                            | You have not applied for Vaccination.
+                                                
+                                        
                             .modal-footer
                                 button.btn.btn-danger(type='button' data-dismiss='modal') Close
 
-                if user.vaccine_req   
+                if user.vaccine_req || user.appointment_date  
                     button.btn.btn-primary(type='button' disabled)
                         | Applied
                 else 
-                    button.btn.btn-primary(type='button' data-toggle='modal' data-target='#myModal2')
+                    button.btn.btn-primary(type='button' data-toggle='modal' data-target='#myModal2' data-whatever=user.aadhar)
                         | Apply For Vaccine
                     #myModal2.modal.fade
                         .modal-dialog.modal-dialog-centered(style='color: rgb(54, 54, 88);')
@@ -88,7 +93,7 @@ head
                                         button.btn.btn-primary(type='submit') Apply
                     
 
-script(src="/js/user.js") 
 script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+script(src="/js/user.js") 
 script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
 script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')

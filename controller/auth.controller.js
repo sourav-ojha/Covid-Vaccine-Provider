@@ -36,7 +36,7 @@ export const UserRegister = async (req, res) => {
 };
 
 export const AdminRegister = async (req, res) => {
-  const { name, fathername, age, gender, phno, email, password } = req.body;
+  const { name, email, password } = req.body;
   const existingUser = await User.findOne({ email });
   try {
     if (!existingUser) {
@@ -65,6 +65,7 @@ export const UserLogin = async (req, res) => {
   try {
     const existUser = await User.findOne({ email });
     const verifyPass = await bcrypt.compare(password, existUser.password);
+    console.log("pass matched", verifyPass);
     if (verifyPass) {
       const token = getToken(existUser);
       const { password, ...userWithOutPass } = existUser;

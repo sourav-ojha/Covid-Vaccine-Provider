@@ -1,6 +1,6 @@
 doctype html
 head
-  link(rel='stylesheet' href='/css/admin/vaccReq.css')
+  link(rel='stylesheet' href='/css/admin/vaccination.css')
   link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
 
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
@@ -10,52 +10,54 @@ head
   meta(charset='UTF-8')
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Vaccination Request
+  title Vaccination 
 .container
   a(href='/admin')
     button#btn.btn.btn-primary Dashboard
   h3.name Admin 
-  h1.title Vaccination Request
+  h1.title Vaccination 
   input#myInput.form-control(type='text' placeholder='Search..')
   table.table.table-dark.table-hover
     thead
       tr
-        th Name
-        th Age 
+        th  Name
         th  Phone Number 
+        th  Age 
         th  Gender 
-        th  Email  
+        th  Appointment Date  
         th  Adhaar Card 
     tbody#myTable
       each user in data
         tr
           td=user.name
-          td=user.age 
           td=user.phno 
+          td=user.age 
           td=user.gender 
-          td=user.email 
-          td=user.aadhar  
+          td=user.appointment_date.toLocaleString().split(",")[0] 
+          td=user.aadhar 
           td.hover_btn
-            .h_btn
+            .h_btn 
               button.btn.btn-primary(type='button' data-toggle='modal' data-target='#accept' data-whatever=user.aadhar)
-                | Accept
-            .h_btn
-              a(href=`/admin/requested/decline?aadhar=${user.aadhar}`) 
-                button.btn.btn-danger  Decline
+                | Vaccinate
             #accept.modal.fade(style='color: rgb(25, 25, 83);')
               .modal-dialog.modal-dialog-centered
                 .modal-content
                   .modal-header
-                    h4.modal-title Schedule Date
+                    h4.modal-title Vaccination Date
                     button.close(type='button' data-dismiss='modal') &times;
-                  form.modal-body(action="/admin/requested" method="POST")
-                    input#aadhar_.form-control.input-sm(type='text' name="aadhar")
+                  form.modal-body(action="/admin/vaccination" method="POST")
+                    .box_form 
+                      span Aadhar no :
+                      input#aadhar_.form-control.input-sm(type='text' name="aadhar")
                     br
-                    input#inputsm.form-control.input-sm(type='date' name="appointment_date")
+                    .box_form 
+                      span Date :
+                      input#inputsm.form-control.input-sm(type='text' name="vaccinated_date" )
                     br
-                    button.btn.btn-primary(type='submit') Confirm Date
+                    button.btn.btn-primary(type='submit') Confirm 
                   .modal-footer
                     button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+          
 script.
   $('#accept').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) 
@@ -64,6 +66,8 @@ script.
   var modal = $(this)
   modal.find('#aadhar_').val(recipient)
   })
+  //- document.getElementById('inputsm') 
+  $('#inputsm').val(new Date().toLocaleString().split(",")[0])
 script(src="/js/admin.js") 
 
 

@@ -21,6 +21,7 @@ const userSchema = mongoose.Schema({
 
   aadhar: String,
   secretkey: String,
+  address: String,
 
   password: {
     type: String,
@@ -28,7 +29,9 @@ const userSchema = mongoose.Schema({
   },
   vaccine_status: { type: Boolean, default: false },
   vaccine_req: { type: Boolean, default: false },
+  appointment_status: { type: Boolean, default: false },
   appointment_date: { type: Date, default: null },
+  vaccinated_date: { type: String, default: null },
   createdAt: {
     type: Date,
     default: new Date(),
@@ -49,5 +52,10 @@ export const fetchVaccinatedUser = async () => {
 };
 export const fetchRequestedUser = async () => {
   var userData = await User.find({ vaccine_req: true });
+  return userData;
+};
+
+export const fetchVaccination = async () => {
+  var userData = await User.find({ appointment_status: true });
   return userData;
 };
