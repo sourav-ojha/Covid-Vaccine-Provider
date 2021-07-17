@@ -1,13 +1,13 @@
 import express from "express";
 import { covidData_get } from "../controller/GetFunction.js";
 import { fetchPincode_post } from "../controller/PostFunctions.js";
+import { Validate } from "../middleware/Authorization.js";
 
 const router = express.Router();
 
-router.get("/", covidData_get);
+router.get("/", Validate, covidData_get);
 
 router.post("/fetchPincode", fetchPincode_post);
-
 
 router.get("/about", (req, res) => {
   res.render("about.pug");

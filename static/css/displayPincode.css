@@ -1,21 +1,61 @@
 * {
   margin: 0;
 }
-.container {
+
+body {
+  /* background: url(../images/pincode_bg.jpg) no-repeat fixed;
+  background-size: cover;
+  backdrop-filter: blur(1px);
+  background-position: top; */
+  background-color: #121212;
+}
+
+.nav_norm {
+  width: 100%;
+  padding: 20px 25px;
+  /* margin-top: 25px; */
+  background-color: #181818;
+}
+.nav-link {
+  color: #ffffff !important;
+}
+.collapse {
+  justify-content: space-between;
+}
+
+.page_container {
   display: grid;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
+}
+.form_box {
+  display: grid;
+  place-items: center;
+  margin-top: 50px;
+}
+.page_pincode_form {
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: 200px 200px auto;
+  column-gap: 10px;
+}
+
+.submit_btn {
+  display: flex;
 }
 
 .box {
   margin: 50px;
-  border-top: 1px solid black;
+  border-top: 1px solid #282828;
 }
 
 .displayBlock {
   display: grid;
   grid-template-columns: 300px auto;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid 181818;
+  background-color: #404040;
+  color: #fff;
+  margin: 10px;
 }
 
 .center {
@@ -26,6 +66,8 @@
 .center_flex {
   display: grid;
   place-items: center;
+  border-bottom: 1px solid #fff;
+  border-style: double;
 }
 
 .vaccine {
@@ -35,11 +77,12 @@
 }
 
 .vacc_name {
-  padding: 5px;
+  margin: 5px;
+  background-color: var(--bs-orange);
 }
 .age {
   padding: 5px;
-  border: 1px solid black;
+  border: 1px solid var(--tblue);
 }
 .avail {
   padding: 5px;
@@ -51,19 +94,26 @@
 .d1,
 .d2 {
   padding: 5px;
-  border: 1px solid black;
+  border: 1px solid var(--tblue);
   display: flex;
   flex-direction: column;
   padding: 2px;
+  background-color: var(--vblue);
 }
 
 .total {
+  display: grid;
   text-align: center;
   align-items: center;
   width: 30px;
+  height: 95%;
+  background-color: var(--bs-orange);
 }
 
 .cont_data {
   align-items: center;
   display: flex;
+}
+.date {
+  background-color: var(--bs-dark);
 }

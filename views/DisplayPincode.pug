@@ -1,16 +1,44 @@
 block style 
     style 
+        include ../static/css/bootstrap.min.css
+        include ../static/css/color.css
         include ../static/css/displayPincode.css
 
 block content 
-    .container 
-        form(action="/fetchPincode", method="post") Search By PinCode 
-          input#pincode(type="text", name="pincode") 
-          input(type="date", name="date")
-          button(type="submit") Search    
+    .page_container 
+        nav.navbar.navbar-expand-lg.navbar-dark.nav_norm     
+            .collapse.navbar-collapse
+                ul.navbar-nav
+                    li.nav-item
+                    a.nav-link(href='/') Home
+                    li.nav-item
+                    a.nav-link(href='/contactUs') Contact Us
+                    li.nav-item
+                    a.nav-link(href='/about') About Us
+                    li.nav-item
+                    a.nav-link(href='/faq') FAQ
+                ul.navbar-nav
+                    li.nav-item
+                    a.nav-link(href='#form') Login
+                    li.nav-item
+                    a.nav-link(href='/register') Register
+
+        .form_box
+            form.page_pincode_form(action="/fetchPincode", method="post")
+                .form-group 
+                    label(for='pincode') pincode
+                    input.form-control#pincode(type="text", name="pincode" placeholder="Enter Pincode" required)
+                    .invalid-feedback Please fill out this field. 
+                .form-group
+                    label(for='date') Date
+                    input.form-control(type="date", name="date" required)
+                    .invalid-feedback Please input date.
+                .form-group
+                    label(for="submit" style={"color":"transparent"}) .swd   
+                    button.btn.btn-primary.submit_btn(type="submit") Search 
         .box
             h1=message
-            .header 
+            .header  
             each center in centers
                 .displayBlock 
                     .center_flex 

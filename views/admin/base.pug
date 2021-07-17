@@ -1,0 +1,47 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+        link(rel='stylesheet' href='/css/admin/admin.css')
+        title Admin
+        block style
+    body
+        block sidenavbar 
+            .sidenav#mySidenav
+                .menu_up
+                    a.closebtn(href='javascript:void(0)' onclick='closeNav()') &times;
+                    a(href='/') Home
+                    a(href='/admin') Admin
+                    a(href='/admin/registered') Registered User
+                    a(href='/admin/requested') Vaccine Request
+                    a(href='/admin/vaccination') Vaccination 
+                    a(href='/admin/vaccinated') Vaccinated User
+                    a(href='/admin/feedback') Feedback
+                .menu_down 
+                    a(href='/admin/logout') Logout
+               
+        #main
+            .menu_btn#menu(style='cursor:pointer; color: rgb(250, 204, 18);' onclick='openNav()') &#9776;
+
+        block content 
+        
+        block script 
+            script.
+                function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("menu").style.marginLeft = "250px";
+                document.getElementById("menu").style.color = "rgb(153,153,153";
+                document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+                }
+                
+                function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("menu").style.marginLeft= "0";
+                document.getElementById("menu").style.color = "rgb(250, 204, 18)";
+                document.body.style.backgroundColor = " rgb(26, 26, 63)";
+                } 

@@ -4,6 +4,7 @@ import { covidData_api } from "../api.js";
 export const covidData_get = (req, res) => {
   covidData_api((data) => {
     let covid_report = data[0].data.data[0];
-    res.render("index.pug", { CR: covid_report });
+    let user = req.user;
+    res.render("index.pug", { CR: covid_report, user });
   });
 };

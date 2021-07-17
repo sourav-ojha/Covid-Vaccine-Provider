@@ -8,7 +8,7 @@ html {
 }
 body {
   font-family: Verdana;
-  background-color: black;
+  background-color: var(--homeBg);
   width: 100vw;
   overflow-x: hidden;
 }
@@ -63,7 +63,7 @@ body::-webkit-scrollbar {
 /* Experiment */
 
 .head_bg {
-  background: #71647994;
+  background: var(-head_bg);
   width: 650px;
   height: 100px;
   position: absolute;
@@ -173,7 +173,7 @@ body::-webkit-scrollbar {
   display: grid;
   place-items: center;
   grid-template-rows: auto 1fr 1fr 1fr;
-  color: #dfdfdf;
+  color: var(--lgray);
   padding: 10px;
 }
 .form-group {
@@ -244,14 +244,14 @@ body::-webkit-scrollbar {
 
 .stat_head {
   text-align: center;
-  background-color: #0066cc;
+  background-color: var(--lblue);
   color: white;
   font-size: 1.2 rem;
   font-weight: 600;
 }
 .stat_head_daily {
   text-align: center;
-  color: #0066cc;
+  color: var(--lblue);
   background-color: white;
   font-size: 1.2 rem;
   font-weight: 600;
@@ -259,18 +259,18 @@ body::-webkit-scrollbar {
 
 .text {
   text-align: center;
-  color: #dfdfdf;
+  color: var(--lgray);
 }
 
 .value {
   text-align: center;
   font-size: 1.5rem;
-  color: #0066ff;
+  color: var(--vblue);
   font-weight: 600;
 }
 
 #footer {
-  background: #0066cc;
+  background: var(--lblue);
   text-align: center;
-  color: #dfdfdf;
+  color: var(--lgray);
 }

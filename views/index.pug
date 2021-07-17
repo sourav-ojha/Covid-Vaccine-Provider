@@ -4,6 +4,7 @@ head
   link(rel="stylesheet", href="css/aos.css") 
   link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
   link(rel='stylesheet' href='/css/design.css')
+  link(rel='stylesheet' href='/css/color.css')
 
   meta(charset='UTF-8')
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
@@ -34,10 +35,16 @@ head
         li.nav-item
           a.nav-link(href='/faq') FAQ
       ul.navbar-nav
-        li.nav-item
-          a.nav-link(href='#form') Login
-        li.nav-item
-          a.nav-link(href='/register') Register
+        if(user)
+          li.nav-item
+            a.nav-link(href=`/${user.role}`) #{user.name}
+          li.nav-item
+            a.nav-link(href=`/${user.role}/logout`) Logout
+        else 
+          li.nav-item
+            a.nav-link(href='#form') Login
+          li.nav-item
+            a.nav-link(href='/register') Register
 
   .carousel_center
     #demo.carousel.slide(data-ride='carousel')

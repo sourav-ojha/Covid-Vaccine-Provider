@@ -1,39 +1,32 @@
-doctype html
-head
-  link(rel='stylesheet' href='/css/admin/vaccUser.css')
-  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
-  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
-  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
-  meta(charset='UTF-8')
-  meta(http-equiv='X-UA-Compatible' content='IE=edge')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Vaccinated User
-.container
-  a(href='/admin')
-    button#btn.btn.btn-primary Dashboard
-  h3.name Admin name
-  h1.title  Vaccinated User
-  input#myInput.form-control(type='text' placeholder='Search..')
-  table.table.table-dark.table-hover
-    thead
-      tr
-        th Name
-        th Age 
-        th  Phone Number 
-        th  Gender 
-        th  Vaccinated Date  
-        th  Adhaar Card 
-    tbody#myTable
-      each user in data
-        tr
-          td=user.name
-          td=user.age 
-          td=user.phno 
-          td=user.gender 
-          td=user.vaccinated_date
-          td=user.aadhar 
+extends base.pug
 
-      
-script(src="/js/admin.js") 
+block style 
+  style 
+    include ../../static/css/admin/vaccUser.css
+block content 
+  .container
+    h3.name Admin name
+    h1.title  Vaccinated User
+    input#myInput.form-control(type='text' placeholder='Search..')
+    table.table.table-dark.table-hover
+      thead
+        tr
+          th Name
+          th Age 
+          th  Phone Number 
+          th  Gender 
+          th  Vaccinated Date  
+          th  Adhaar Card 
+      tbody#myTable
+        each user in data
+          tr
+            td=user.name
+            td=user.age 
+            td=user.phno 
+            td=user.gender 
+            td=user.vaccinated_date
+            td=user.aadhar 
+
+append script         
+  script(src="/js/admin.js") 
 

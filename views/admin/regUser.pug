@@ -1,47 +1,42 @@
-doctype html
-head
-  link(rel='stylesheet' href='/css/admin/regUser.css')
-  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
-  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
-  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
-  meta(charset='UTF-8')
-  meta(http-equiv='X-UA-Compatible' content='IE=edge')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Registered User
-.container
-  a(href='/admin')
-    button#btn.btn.btn-primary Dashboard
-  h3.name Admin name
-  h1.title Registered User
-  input#myInput.form-control(type='text' placeholder='Search..')
-  table.table.table-dark.table-hover
-    thead
-      tr
-        th  Name
-        th  age 
-        th  Phone Number 
-        th  Gender 
-        th  Email  
-        th  Adhaar Card 
-        th  Status
-    tbody#myTable
-      each user in data
+extends base.pug
+
+block style 
+  style 
+    include ../../static/css/admin/regUser.css
+
+block content 
+  .container
+    
+    h3.name Admin name
+    h1.title Registered User
+    input#myInput.form-control(type='text' placeholder='Search..')
+    table.table.table-dark.table-hover
+      thead
         tr
-          td=user.name
-          td=user.age 
-          td=user.phno 
-          td=user.gender 
-          td=user.email 
-          td=user.aadhar 
-          if(user.vaccine_status) 
-            td(style={'color':'lightgreen', 'font-weight':'600', 'letter-spacing':'1.2px'}) Vaccinated 
-          else if (user.appointment_date)
-            td(style={'color':'yellow'}) Date appointed
-          else if (user.vaccine_req)
-            td(style={'color':'orange', 'font-weight':'600', 'letter-spacing':'1.2px'}) Requested
-          else   
-            td(style={'color':'#dfdfdf'}) Not Vaccinated
-             
-           
-script(src="/js/admin.js") 
+          th  Name
+          th  age 
+          th  Phone Number 
+          th  Gender 
+          th  Email  
+          th  Adhaar Card 
+          th  Status
+      tbody#myTable
+        each user in data
+          tr
+            td=user.name
+            td=user.age 
+            td=user.phno 
+            td=user.gender 
+            td=user.email 
+            td=user.aadhar 
+            if(user.vaccine_status) 
+              td(style={'color':'lightgreen', 'font-weight':'600', 'letter-spacing':'1.2px'}) Vaccinated 
+            else if (user.appointment_date)
+              td(style={'color':'yellow'}) Date appointed
+            else if (user.vaccine_req)
+              td(style={'color':'orange', 'font-weight':'600', 'letter-spacing':'1.2px'}) Requested
+            else   
+              td(style={'color':'#dfdfdf'}) Not Vaccinated
+              
+append script           
+  script(src="/js/admin.js") 
