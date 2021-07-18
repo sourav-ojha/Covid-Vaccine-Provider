@@ -1,4 +1,5 @@
-import {  fetchPincode_api } from "../api.js";
+import { fetchPincode_api } from "../api.js";
+import FeedBack from "../models/feedback.js";
 
 // Slot Availibility By Pincode
 export const fetchPincode_post = async (req, res) => {
@@ -26,4 +27,14 @@ export const fetchPincode_post = async (req, res) => {
   }
 };
 
-
+export const contactUs_post = async (req, res) => {
+  const { email, message } = req.body;
+  try {
+    var data = new FeedBack({ email, message });
+    await data.save();
+    res.redirect("/contactUs");
+  } catch (error) {
+    console.log(error)
+    res.json({ message: error.message });
+  }
+};

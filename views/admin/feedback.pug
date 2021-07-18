@@ -1,0 +1,55 @@
+extends base.pug
+
+block style 
+    style 
+        include ../../static/css/admin/feedback.css
+
+block content 
+    .container  
+        table.table.table-dark.table-hover 
+            thead
+                tr  
+                    th Email 
+                    th Message 
+                    th Dated 
+                    th 
+            tbody#myTable
+                each d in data
+                    tr 
+                        td=d.email
+                        td
+                            .message #{d.message}
+                        td=d.createdAt.toLocaleString().split(",")[0]
+                        td.reply 
+                            button.btn.btn-primary.h_btn(data-toggle='modal' data-target='#reply' data-whatever=d.email data-id=d.id)  Reply
+                            
+                            #reply.modal.fade(style='color: rgb(25, 25, 83);')
+                                .modal-dialog.modal-dialog-centered
+                                    .modal-content
+                                        .modal-header
+                                            h4.modal-title Reply
+                                            button.close(type='button' data-dismiss='modal') &times;
+                                        form.modal-body(action="/admin/reply" method="POST")
+                                            | To
+                                            input#reply_email.form-control.input-sm(type='text' name="email")
+                                            br
+                                            | Message ID
+                                            input#reply_id.form-control.input-sm(type='text' name="id")
+                                            br
+                                            | Message 
+                                            input#inputsm.form-control.input-sm(type='text' name="admin_reply")
+                                            br
+                                            button.btn.btn-primary(type='submit') Send
+                                        .modal-footer
+                                            button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+append script 
+  script.
+    $('#reply').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) 
+    var recipient = button.data('whatever') 
+    var id = button.data('id') 
+    console.log(recipient)
+    var modal = $(this)
+    modal.find('#reply_email').val(recipient)
+    modal.find('#reply_id').val(id)
+    })

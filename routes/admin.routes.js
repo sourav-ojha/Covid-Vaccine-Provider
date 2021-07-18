@@ -1,5 +1,7 @@
 import express from "express";
+import { mail } from "../helper/mail.js";
 import { adminAuthorize } from "../middleware/Authorization.js";
+import FeedBack, { fetchFeedBack } from "../models/feedback.js";
 import User, {
   fetchAllUser,
   fetchRequestedUser,
@@ -67,6 +69,28 @@ router.post("/vaccination", adminAuthorize, async (req, res) => {
   );
   console.log(aadhar);
   res.redirect("/admin/vaccination");
+});
+
+router.get("/feedback", (req, res) => {
+  fetchFeedBack().then((data) => {
+    res.render("admin/feedback.pug", { data });
+  });
+});
+
+router.post("/reply", async (req, res) => {
+  let { email, admin_reply, id } = req.body;
+  try {
+    mail(admin_reply, email);
+    let data = await FeedBack.findByIdAndUpdate(
+      id,
+      { status: true },
+      { new: true }
+    );
+    console.log(email, admin_reply, id);
+  } catch (error) {
+    console.log(error);
+  }
+  res.redirect("/admin/feedback");
 });
 
 router.get("/logout", (req, res) => {

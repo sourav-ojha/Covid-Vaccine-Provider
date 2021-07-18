@@ -1,0 +1,44 @@
+.table {
+  margin-top: 6%;
+}
+.name {
+  margin-left: 85%;
+}
+.title {
+  margin-left: 40%;
+}
+#btn {
+  margin-top: 2%;
+}
+body {
+  background-color: rgb(26, 26, 63);
+}
+
+.hover_btn {
+  display: flex;
+  flex-direction: row;
+  width: 150px;
+}
+
+td {
+  height: 68px;
+  vertical-align: middle !important;
+}
+tr:hover .h_btn {
+  display: block;
+}
+
+.h_btn {
+  display: none;
+  padding: 0 5px;
+}
+
+.message {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.reply {
+  width: 100px;
+}
