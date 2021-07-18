@@ -6,7 +6,7 @@ export const mail = (message, email) => {
   var transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.MAIL,
+       user: process.env.MAIL,
       pass: process.env.PASS,
     },
   });
