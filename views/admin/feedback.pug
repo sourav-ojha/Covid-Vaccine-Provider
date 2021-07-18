@@ -21,7 +21,7 @@ block content
                             .message #{d.message}
                         td=d.createdAt.toLocaleString().split(",")[0]
                         td.reply 
-                            button.btn.btn-primary.h_btn(data-toggle='modal' data-target='#reply' data-whatever=d.email data-id=d.id)  Reply
+                            button.btn.btn-primary.h_btn(data-toggle='modal' data-target='#reply' data-whatever=d.email data-message=d.message data-id=d.id)  Reply
                             
                             #reply.modal.fade(style='color: rgb(25, 25, 83);')
                                 .modal-dialog.modal-dialog-centered
@@ -31,14 +31,16 @@ block content
                                             button.close(type='button' data-dismiss='modal') &times;
                                         form.modal-body(action="/admin/reply" method="POST")
                                             | To
-                                            input#reply_email.form-control.input-sm(type='text' name="email")
+                                            .row 
+                                                input#reply_email.col.form-control.input-sm(type='text' name="email")
+                                                input#reply_id.col.form-control.input-sm(type='text' name="id")
                                             br
-                                            | Message ID
-                                            input#reply_id.form-control.input-sm(type='text' name="id")
+                                            .text_area Message
+                                            textarea#message(name="", cols="55", rows="5" readonly) 
                                             br
-                                            | Message 
-                                            input#inputsm.form-control.input-sm(type='text' name="admin_reply")
-                                            br
+                                            .text_area Reply
+                                            textarea#inputsm(name="admin_reply", cols="55", rows="5") 
+                                            .text_area
                                             button.btn.btn-primary(type='submit') Send
                                         .modal-footer
                                             button.btn.btn-secondary(type='button' data-dismiss='modal') Close
@@ -48,8 +50,9 @@ append script
     var button = $(event.relatedTarget) 
     var recipient = button.data('whatever') 
     var id = button.data('id') 
-    console.log(recipient)
+    var message = button.data('message') 
     var modal = $(this)
     modal.find('#reply_email').val(recipient)
     modal.find('#reply_id').val(id)
+    modal.find('#message').text(message)
     })

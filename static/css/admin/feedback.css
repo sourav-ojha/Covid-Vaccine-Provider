@@ -42,3 +42,26 @@ tr:hover .h_btn {
 .reply {
   width: 100px;
 }
+.col {
+  pointer-events: none;
+  border: none;
+  text-align: center;
+}
+#message {
+  border: none;
+  overflow-x: scroll;
+  word-wrap: normal;
+}
+#message::-webkit-scrollbar {
+  display: block;
+  width: 0.2rem;
+}
+
+#message::-webkit-scrollbar-thumb {
+  width: 0.2rem;
+  background: orange;
+}
+
+.text_area {
+  padding-bottom: 10px;
+}

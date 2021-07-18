@@ -83,7 +83,7 @@ router.post("/reply", async (req, res) => {
     mail(admin_reply, email);
     let data = await FeedBack.findByIdAndUpdate(
       id,
-      { status: true },
+      { status: true, admin_reply },
       { new: true }
     );
     console.log(email, admin_reply, id);
