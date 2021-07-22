@@ -1,7 +1,57 @@
-<!DOCTYPE html>
-head
-  meta(charset='UTF-8')
-  meta(http-equiv='X-UA-Compatible' content='IE=edge')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Document
-h1 guide
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+    title Document
+  style.
+    .carousel-inner img {
+    width: 40%;
+    height: 10%;
+    margin-top: 7%;
+    margin-left: 30%;
+    }
+    body {
+    background-color: rgb(24, 37, 97);
+    }
+    button {
+    margin-left: 10%;
+    }
+  body
+    a(href='#homepage')
+      button.btn.btn-danger HOME
+    br
+    br
+    br
+    #demo.carousel.slide(data-ride='carousel')
+      ol.carousel-indicators
+        li.active(data-target='#demo' data-slide-to='0')
+        li(data-target='#demo' data-slide-to='1')
+        li(data-target='#demo' data-slide-to='2')
+        li(data-target='#demo' data-slide-to='3')
+        li(data-target='#demo' data-slide-to='4')
+        li(data-target='#demo' data-slide-to='5')
+        li(data-target='#demo' data-slide-to='6')
+        li(data-target='#demo' data-slide-to='7')
+      .carousel-inner
+        .carousel-item.active
+          img(src='/images/guide/guide1.jpeg' alt='error' width='1100' height='500')
+        .carousel-item
+          img(src='/images/guide/guide2.jpeg' alt='error' width='1100' height='500')
+        .carousel-item
+          img(src='/images/guide/guide3.jpeg' alt='error' width='1100' height='500')
+      .carousel-item
+        img(src='/images/guide/guide4.jpeg' alt='error' width='1100' height='500')
+    .carousel-item
+      img(src='/images/guide/guide5.jpeg' alt='error' width='1100' height='500')
+    .carousel-item
+      img(src='/images/guide/guide6.jpeg' alt='error' width='1100' height='500')
+    a.carousel-control-prev(href='#demo' data-slide='prev')
+      span.carousel-control-prev-icon
+    a.carousel-control-next(href='#demo' data-slide='next')
+      span.carousel-control-next-icon
