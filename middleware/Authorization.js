@@ -23,9 +23,7 @@ export const userAuthorize = async (req, res, next) => {
     const verifyUser = jwt.verify(token, secret);
     req.user = await User.findOne({ _id: verifyUser.id });
     next();
-  } catch (error) {
-    res.redirect("/login");
-  }
+  } catch (error) {res.redirect("/login");}
 };
 
 export const adminAuthorize = async (req, res, next) => {
@@ -43,5 +41,4 @@ export const adminAuthorize = async (req, res, next) => {
     res.status(404).json({
       message: "Access Denied- Admin Only",
     });
-  }
-};
+  }};

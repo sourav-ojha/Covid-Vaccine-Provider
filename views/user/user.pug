@@ -89,7 +89,7 @@ head
                                 .modal-body
                                     form(action='/user/register/vaccine' method='POST')
                                         .form-group
-                                            input#Adhaar.form-control(placeholder='Addhar Number' type='text' name='aadhar' required)
+                                            input#Adhaar.form-control(placeholder='Aadhar Number' type='text' name='aadhar' pattern = "[0-9]{12}" required)
                                         button.btn.btn-primary(type='submit') Apply
                     
 

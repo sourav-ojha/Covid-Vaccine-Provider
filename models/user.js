@@ -6,36 +6,19 @@ const userSchema = mongoose.Schema({
   dob: String,
   age: Number,
   gender: String,
-  phno: {
-    type: Number,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  role: {
-    type: String,
-    default: "user",
-  },
-
+  phno: { type: String },
+  email: { type: String, required: true, unique: true },
+  role: { type: String, default: "user" },
   aadhar: String,
   secretkey: String,
   address: String,
-
-  password: {
-    type: String,
-    required: true,
-  },
+  password: { type: String, required: true },
   vaccine_status: { type: Boolean, default: false },
   vaccine_req: { type: Boolean, default: false },
   appointment_status: { type: Boolean, default: false },
   appointment_date: { type: Date, default: null },
   vaccinated_date: { type: String, default: null },
-  createdAt: {
-    type: Date,
-    default: new Date(),
-  },
+  createdAt: { type: Date, default: new Date() },
 });
 
 const User = mongoose.model("User", userSchema);

@@ -20,11 +20,14 @@ body::-webkit-scrollbar {
 }
 .header {
   display: grid;
-  grid-template-columns: 160px auto;
+  grid-template-columns: 0px auto;
+}
+.logo{
+  z-index: 5;
 }
 .logo > img {
-  width: 160px;
-  height: 160px;
+  width: 120px;
+  height: 100px;
 }
 .nav_logo {
   height: 50px;

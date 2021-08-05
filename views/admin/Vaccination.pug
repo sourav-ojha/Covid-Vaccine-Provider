@@ -20,7 +20,7 @@ block content
       tbody#myTable
         each user in data
           tr
-            td=user.name
+            td=user.name 
             td=user.phno 
             td=user.age 
             td=user.gender 
@@ -43,7 +43,7 @@ block content
                       br
                       .box_form 
                         span Date :
-                        input#inputsm.form-control.input-sm(type='text' name="vaccinated_date" )
+                        input#inputsm.form-control.input-sm(type='text' name="date" )
                       br
                       button.btn.btn-primary(type='submit') Confirm 
                     .modal-footer

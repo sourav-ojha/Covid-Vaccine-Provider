@@ -31,7 +31,7 @@ export const UserRegister = async (req, res) => {
     }
     res.redirect("/login");
   } catch (error) {
-    res.json("error");
+    res.json(error);
   }
 };
 
